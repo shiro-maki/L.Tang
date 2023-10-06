@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传测试</title>
+</head>
+<body>
+
+<fieldset>
+    <legend>image</legend>
+    <form action="one/image" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <button>上传</button>
+    </form>
+</fieldset>
+
+<fieldset>
+    <legend>doc</legend>
+    <form action="one/doc" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="application/*">
+        <button>上传</button>
+    </form>
+</fieldset>
+
+<fieldset id="f1">
+    <legend>文件上传Vue组件</legend>
+    <upload url="one/image" accepe="image" width="100px"></upload>
+</fieldset>
+<script>
+    var v=new Vue({
+        el:"#f1"
+    })
+</script>
+</body>
+</html>

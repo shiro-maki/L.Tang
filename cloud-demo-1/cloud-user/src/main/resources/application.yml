@@ -1,0 +1,28 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: cloud-user
+
+eureka:
+  client:
+    service-url:
+      #字符串不能用松散命名
+      defaultZone: http://127.0.0.1:8000/eureka
+
+---
+spring:
+  profiles: user8005
+
+server:
+  port: 8005
+
+---
+spring:
+  profiles: user8006
+
+server:
+  port: 8006
+
+

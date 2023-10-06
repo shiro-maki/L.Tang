@@ -12,6 +12,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-//        WebMvcConfigurer.super.configureDefaultServletHandling(configurer);
+        configurer.enable();
     }
+
+
 }

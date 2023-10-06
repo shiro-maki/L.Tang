@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>ti</title>
+    <script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 </head>
 <body>
 <form action="register" method="post">
@@ -10,5 +14,42 @@
     pwd:<input name="pwd"><br>
 </form>
 
+<form action="a/b/c/sign" method="post" id="app">
+    name:<input name="name" v-model="user.name"> <span>{{errors.name.join(';  ')}}</span><br>
+    pwd:<input name="pwd"> <br>
+    email:<input name="email"> <br>
+    age: <input type="number" name="age"> <br>
+    like :<input type="number" name="likes" value="读书" v-model="user.likes"> 读书
+    <input type="checkbox" name="likes" value="手游"> 手游
+    <input type="checkbox" name="likes" value="电影"> 电影 <br>
+    <button @click.prevent="sign">提交</button>
+</form>
+
+<script>
+    var v=new Vue({
+        el:"#app",
+        data:{
+            user:{name:"",likes:[]},
+            errors:{name:[],likes: []}
+        },
+        methods:{
+            sign(){
+                // SpringMVC=> post方法
+                var p=new URLSearchParams();
+                p.append("name",this.user.name);
+                this.user.likes.forEach(like=>p.append("likes",like));
+                axios.post("a/b/c/sign",p).then(res=>{
+                    this.errors={};
+                    res.data.forEach(e=>{
+                        if(!this.errors[e.field]){
+                            this.errors[e.field]=[];
+                        }
+                        this.errors[e.field].push(e.defaultMessage);
+                    })
+                })
+            }
+        }
+    })
+</script>
 </body>
 </html>

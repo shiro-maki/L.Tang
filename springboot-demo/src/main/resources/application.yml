@@ -9,6 +9,17 @@ spring:
     username: root
     password: root
     url: jdbc:mysql:///mybank
+
+  mail:
+    host: smtp.qq.com
+    username: 2056760422@qq.com
+    password: cfjddythazasjjbe
+
+mail:
+  fromMail:
+    addr: 2056760422@qq.com
+
+
 demo:
   my-name: 测试松散
   name: zhangsan
@@ -34,6 +45,9 @@ demo:
     - name: 来福
       age: 5
 
+
+
+
 ---
 server:
   port: 8080
@@ -42,4 +56,6 @@ spring:
     test
   application:
     name: demo
+
+
 

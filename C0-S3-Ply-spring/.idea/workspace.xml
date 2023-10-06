@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8b9c394-49e2-46df-9d41-e56655d1434b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../untitled/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-newnewnew/src/main/webapp/a.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-newnewnew/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-newnewnew/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-newnewnew/src/main/java/com/yc/mvc/bean/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-newnewnew/src/main/java/com/yc/mvc/bean/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-newnewnew/src/main/java/com/yc/mvc/web/DemoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-newnewnew/src/main/java/com/yc/mvc/web/DemoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-newnewnew/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-newnewnew/src/main/webapp/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,20 +29,20 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/YC/github/L.Tang/untitled",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "configurable.group.appearance",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/YC/github/L.Tang/untitled&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -49,6 +54,9 @@
       <workItem from="1694329066276" duration="536000" />
       <workItem from="1694437668818" duration="24000" />
       <workItem from="1695390953296" duration="1516000" />
+      <workItem from="1695813805470" duration="8000" />
+      <workItem from="1695815854272" duration="6000" />
+      <workItem from="1695815867275" duration="11000" />
     </task>
     <servers />
   </component>

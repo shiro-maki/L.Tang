@@ -1,0 +1,12 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-index
+
+eureka:
+  client:
+    service-url:
+      #字符串不能用松散命名
+      defaultZone: http://127.0.0.1:8000/eureka
