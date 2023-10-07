@@ -1,9 +1,6 @@
 package com.example.clouduser.web;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Path;
@@ -22,7 +19,7 @@ public class UserDo {
         return "hello" +name;
     }
 
-    @RequestMapping("hello")
+    @RequestMapping("castDay")
     Date castDay(@RequestParam("dt") String date) throws ParseException {
         SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd");
         return sdf.parse(date);
@@ -34,5 +31,10 @@ public class UserDo {
         Date date=sdf.parse(dateStr);
         sdf=new SimpleDateFormat("eee");
         return sdf.format(date);
+    }
+
+    @RequestMapping("cookie")
+    String cookie(@CookieValue(required = false) String name){
+        return name;
     }
 }

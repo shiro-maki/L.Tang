@@ -1,0 +1,43 @@
+demo.name: ycinfo
+#demo.enable: true
+
+server.port: 80
+
+upload:
+  enable: true
+  mappings:
+    - webPath: image
+      diskPath: D:/_文件柜/132/1001/image/
+    - webPath: doc
+      diskPath: D:/_文件柜/132/1001/doc/
+
+login:
+    enable: true
+    table-user: user
+    column-name: username
+    column-pwd: password
+    column-email: email
+    user-class-name: com.example.springbootdemo1.bean.user
+        # 扩a展字段
+    encryption: md5
+
+spring:
+  datasource:
+    url: jdbc:mysql:///damai
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+  mail:
+    host: smtp.qq.com
+    username: 2056760422@qq.com
+    password: cfjddythazasjjbe
+
+
+vcode:
+  resources:
+    - /upload/login
+    - /upload/changePwd
+
+mail:
+  fromMail:
+    addr: 2056760422@qq.com

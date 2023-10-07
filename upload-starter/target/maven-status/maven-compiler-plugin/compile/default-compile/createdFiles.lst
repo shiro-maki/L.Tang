@@ -1,0 +1,6 @@
+com\yc\upload\bean\UploadProperties.class
+com\yc\upload\web\UploadAction.class
+org\example\Main.class
+com\yc\upload\bean\Result.class
+com\yc\upload\bean\UploadProperties$UploadMapping.class
+com\yc\upload\UploadAutonConfiguration.class

@@ -1,0 +1,5 @@
+com\yc\login\loginAutoConfiguration.class
+com\yc\login\web\LoginDo.class
+com\yc\login\bean\Result.class
+com\yc\login\bean\BizException.class
+com\yc\login\bean\LoginProperties.class

@@ -1,6 +1,7 @@
 package com.example.cloudindex.web;
 
 import com.example.cloudindex.web.remote.UserDo;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,9 +22,14 @@ public class IndexDo {
     @Resource
     RestTemplate restTemplate;
     @RequestMapping("user")
+    @HystrixCommand(fallbackMethod = "myUser")
     String user(){
         final String res = restTemplate.getForObject("http://cloud-user/user", String.class);
         return res;
+    }
+
+    String myUser(){
+        return "Restemplate降级方法myUser";
     }
 
     @RequestMapping("order")

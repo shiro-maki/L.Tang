@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: cloud-user
+
+  cloud:
+    config:
+      uri: http://127.0.0.1:3344
+      label: main
+
+
+---
+spring:
+  profiles: user8005
+
+server:
+  port: 8005
+
+---
+spring:
+  profiles: user8006
+
+server:
+  port: 8006
+
+

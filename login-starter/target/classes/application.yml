@@ -1,0 +1,13 @@
+login:
+  enable: true
+  table-user: xxxx
+  column-name: xxxx
+  column-pwd: xxxx
+  column-email: xxxx
+  user-class-name: xxxx
+  # 扩展字段
+  encryption: md5
+  #访问权限控制
+  resources:
+     - /a.html
+     - /changePwd.

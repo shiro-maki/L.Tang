@@ -1,0 +1,45 @@
+server:
+  port: 80
+
+
+spring:
+  application:
+    name: cloud-zuul
+
+zuul:
+  routes:
+    #???????????
+    to163:
+      path: /163/**
+      url: http://www.163.com
+
+    toBaidu:
+        path: /baidu/**
+        url: http://baidu.com
+
+    #????
+    toDemo:
+      path: /todemo/**
+      url: forward:/zl
+
+#Ribbon ??(???)
+    toIndex:
+      path: /index/**
+      service-id: cloud-index
+
+    cloud-user:
+      path: /user/**
+
+    cloud-index: /idx/**
+
+    toDefault:
+      path: /**
+      url: https://www.taobao.com
+
+  ignored-services: cloud-user
+  ignored-patterns: user/**
+  sensitive-headers: abc
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka

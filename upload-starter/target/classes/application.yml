@@ -1,0 +1,7 @@
+upload:
+  enable: true
+  mappings:
+    - webPath: /image/**
+      diskPath: D:/YC/upload/image/
+    - webPath: /doc/**
+      diskPath: D:/YC/upload/doc/
