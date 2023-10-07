@@ -3,21 +3,14 @@ server:
   port: 3344
 spring:
   application:
-    name: cloud-config-center #???Eureka????????
+    name: cloud-config
   cloud:
     config:
       server:
         git:
-      # Gitee???git????
           uri: https://github.com/shiro-maki/L.Tang
-#????
           search-paths: /cloud-demo-1/config
-# ????
           label: main
-# ???????????
-  #    username: xXXX
-  #   password: xxxx
-
 eureka:
   client:
     service-url:
