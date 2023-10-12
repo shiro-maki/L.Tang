@@ -1,8 +1,8 @@
 spring:
   datasource:
-    password: a
+    password: root
     username: root
-    url: jdbc:mysql:///c94-s2-ply-damai
+    url: jdbc:mysql:///cop
     driver-class-name: com.mysql.jdbc.Driver
 
 server:
