@@ -7,10 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="damai-user" />
+        <module name="cloud-config" />
         <module name="damai-order" />
         <module name="damai-common" />
         <module name="cloud-zuul" />
+        <module name="damai-user" />
         <module name="cloud-eureka" />
         <module name="damai-index" />
       </profile>
@@ -19,6 +20,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cloud-config" options="-parameters" />
       <module name="cloud-eureka" options="-parameters" />
       <module name="cloud-zuul" options="-parameters" />
       <module name="damai-common" options="-parameters" />

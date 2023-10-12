@@ -17,7 +17,7 @@ spring:
       server:
         git:
           # Gitee上面的git仓库名字
-          uri: https://gitee.com/ycdemo/yc134-132
+          uri: https://github.com/shiro-maki/L.Tang.git
           # 搜索目录
           search-paths: /cloud-demo/config
           # 读取分支  github main
