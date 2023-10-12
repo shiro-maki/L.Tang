@@ -1,0 +1,37 @@
+server:
+  # eureka 的默认端口是 8761
+  # 如果配置默认端口, 客户端可以不用配置eureka的服务器地址
+  port: 8000
+
+spring:
+  application:
+    name: cloud-server
+
+eureka:
+  client:
+    # 不注册当前应用
+    # registerWithEureka: false
+    # 交换注册信息
+    # fetchRegistry: false
+    # eureka 服务器地址
+    serviceUrl:
+      defaultZone: http://127.0.0.1:7999/eureka
+
+---
+spring:
+  profiles: eureka7999
+
+server:
+  port: 7999
+eureka:
+  client:
+    # 不注册当前应用
+    # registerWithEureka: false
+    # 交换注册信息
+    # fetchRegistry: false
+    # eureka 服务器地址
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8000/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 3
+    lease-expiration-duration-in-seconds: 10

@@ -10,6 +10,8 @@
         <module name="damai-user" />
         <module name="damai-order" />
         <module name="damai-common" />
+        <module name="cloud-zuul" />
+        <module name="cloud-eureka" />
         <module name="damai-index" />
       </profile>
     </annotationProcessing>
@@ -17,6 +19,9 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cloud-eureka" options="-parameters" />
+      <module name="cloud-zuul" options="-parameters" />
+      <module name="damai-common" options="-parameters" />
       <module name="damai-index" options="-parameters" />
       <module name="damai-order" options="-parameters" />
       <module name="damai-user" options="-parameters" />

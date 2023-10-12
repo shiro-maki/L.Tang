@@ -1,0 +1,27 @@
+server:
+  # 配置中心默认端口 8888
+  port: 3344
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka
+
+spring:
+  application:
+    #注册进Eureka服务器的微服务名
+    name:  cloud-config
+
+  cloud:
+    config:
+      server:
+        git:
+          # Gitee上面的git仓库名字
+          uri: https://gitee.com/ycdemo/yc134-132
+          # 搜索目录
+          search-paths: /cloud-demo/config
+          # 读取分支  github main
+          label: master
+          # 开源库不用写用户名密码
+#          username: xxxx
+#          password: xxxx

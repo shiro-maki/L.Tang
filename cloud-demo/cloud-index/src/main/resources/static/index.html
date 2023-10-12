@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XXX平台</title>
+  <script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="c900 flex">
+      <a href="./"><h1 style="color: #fdfdfd">XXX平台</h1></a>
+      <span class="flex">
+                <a><el-avatar src="https://img1.baidu.com/it/u=2068393135,2936134418&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></el-avatar></a>
+                <a href="register.html">注册</a>
+                <a href="login.html">登录</a>
+            </span>
+    </div>
+  </header>
+  <main class="c900 flex" style="background-color: #eee; min-height: 600px">
+  </main>
+</div>
+<script>
+  var v = new Vue({
+    el : "#app",
+  })
+</script>
+</body>
+</html>
+
+<style>
+  body{
+    margin: 0px;
+    padding: 0px;
+    background-size: cover;
+  }
+  a{
+    text-decoration: none;
+    color: #666
+  }
+  img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  .c900{
+    width: 900px;
+    margin-inline: auto;
+  }
+  .flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  header{
+    background-color: #0f9ae0;
+    background-size: cover;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+  }
+  header h1{
+    margin: 10px;
+  }
+  header span>a{
+    margin-left: 20px;
+    color: #fff;
+  }
+</style>

@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    password: a
+    username: root
+    url: jdbc:mysql:///c94-s2-ply-damai
+    driver-class-name: com.mysql.jdbc.Driver
+
+server:
+  port: 0
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.99.100:8000/eureka

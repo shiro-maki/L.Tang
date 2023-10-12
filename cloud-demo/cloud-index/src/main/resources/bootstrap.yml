@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: cloud-index
+  cloud:
+    config:
+      uri: http://127.0.0.1:3344
+      label: master
+
+  rabbitmq:
+    host: 192.168.99.100
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
