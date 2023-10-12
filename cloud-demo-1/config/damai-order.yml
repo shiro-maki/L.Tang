@@ -1,0 +1,15 @@
+spring:
+
+  datasource:
+    password: root
+    username: root
+    url: jdbc:mysql:///cop
+    driver-class-name: com.mysql.jdbc.Driver
+
+server:
+  port: 0
+eureka:
+  client:
+    service-url:
+      #字符串不能用松散命名
+      defaultZone: http://127.0.0.1:8000/eureka

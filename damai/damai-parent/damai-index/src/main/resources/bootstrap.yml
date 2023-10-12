@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: damai-index
+
+  cloud:
+    config:
+      uri: http://127.0.0.1:3344
+      label: main
+
+server:
+  port: 0

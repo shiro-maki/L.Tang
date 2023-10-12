@@ -6,8 +6,12 @@ spring:
     config:
       uri: http://127.0.0.1:3344
       label: main
-
-
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
 ---
 spring:
   profiles: user8005

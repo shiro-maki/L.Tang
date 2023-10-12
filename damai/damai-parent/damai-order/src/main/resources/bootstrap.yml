@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: damai-order
+
+  cloud:
+    config:
+      uri: http://127.0.0.1:3344
+      label: main
+
+  datasource:
+    password: root
+    username: root
+    url: jdbc:mysql:///cop
+    driver-class-name: com.mysql.jdbc.Driver
+server:
+  port: 0
+
