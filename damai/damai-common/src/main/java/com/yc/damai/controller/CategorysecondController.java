@@ -12,7 +12,7 @@ import org.springframework.stereotype.Controller;
  * @since 2023-10-11
  */
 @Controller
-@RequestMapping("/txx/categorysecond")
+@RequestMapping("/damai/categorysecond")
 public class CategorysecondController {
 
 }

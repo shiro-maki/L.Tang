@@ -17,9 +17,9 @@ spring:
       server:
         git:
           # Gitee上面的git仓库名字
-          uri: https://github.com/shiro-maki/L.Tang.git
+          uri: https://gitee.com/Aqualir/l.-tang.git
           # 搜索目录
-          search-paths: /cloud-demo/config
+          search-paths: /config
           # 读取分支  github main
           label: main
           # 开源库不用写用户名密码

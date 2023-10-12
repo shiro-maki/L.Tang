@@ -5,5 +5,5 @@ spring:
   cloud:
     config:
       uri: http://127.0.0.1:3344
-      label: main
+      label: master
 
