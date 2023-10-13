@@ -3,8 +3,8 @@ package com.yc.damai.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+//import io.swagger.annotations.ApiModel;
+//import io.swagger.annotations.ApiModelProperty;
 
 /**
  * <p>
@@ -14,22 +14,22 @@ import io.swagger.annotations.ApiModelProperty;
  * @author tl
  * @since 2023-10-11
  */
-@ApiModel(value = "Cart对象", description = "")
+//@ApiModel(value = "Cart对象", description = "")
 public class Cart implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-      @ApiModelProperty("购物车ID")
+//      @ApiModelProperty("购物车ID")
         @TableId(value = "ciid", type = IdType.AUTO)
       private Integer ciid;
 
-      @ApiModelProperty("用户ID")
+//      @ApiModelProperty("用户ID")
       private Integer uid;
 
-      @ApiModelProperty("商品ID")
+//      @ApiModelProperty("商品ID")
       private Integer pid;
 
-      @ApiModelProperty("商品数量")
+//      @ApiModelProperty("商品数量")
       private Integer count;
 
     

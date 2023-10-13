@@ -3,7 +3,7 @@ package com.yc.damai.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
+//import io.swagger.annotations.ApiModel;
 
 /**
  * <p>
@@ -13,7 +13,7 @@ import io.swagger.annotations.ApiModel;
  * @author tl
  * @since 2023-10-11
  */
-@ApiModel(value = "Category对象", description = "")
+//@ApiModel(value = "Category对象", description = "")
 public class Category implements Serializable {
 
     private static final long serialVersionUID = 1L;

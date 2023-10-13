@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import io.swagger.annotations.ApiModel;
+//import io.swagger.annotations.ApiModel;
 
 /**
  * <p>
@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModel;
  * @author tl
  * @since 2023-10-11
  */
-@ApiModel(value = "Product对象", description = "")
+//@ApiModel(value = "Product对象", description = "")
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;

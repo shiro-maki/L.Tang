@@ -1,6 +1,7 @@
 spring:
   application:
-    name: damai-index
+    name: damai-user
+
   cloud:
     config:
       uri: http://127.0.0.1:3344

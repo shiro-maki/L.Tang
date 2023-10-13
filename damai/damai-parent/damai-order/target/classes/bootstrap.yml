@@ -1,7 +1,9 @@
 spring:
   application:
-    name: damai-index
+    name: damai-order
+
   cloud:
     config:
       uri: http://127.0.0.1:3344
       label: master
+
