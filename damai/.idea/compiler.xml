@@ -11,6 +11,8 @@
         <module name="damai-order" />
         <module name="damai-common" />
         <module name="cloud-zuul" />
+        <module name="login-starter" />
+        <module name="vcode-starter" />
         <module name="damai-user" />
         <module name="cloud-eureka" />
         <module name="damai-index" />

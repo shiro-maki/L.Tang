@@ -5,3 +5,5 @@ spring:
     config:
       uri: http://127.0.0.1:3344
       label: master
+
+

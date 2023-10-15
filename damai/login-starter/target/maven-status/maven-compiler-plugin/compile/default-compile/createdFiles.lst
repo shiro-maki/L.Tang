@@ -1,0 +1,6 @@
+com\yc\login\web\LoginDo.class
+com\yc\login\bean\Result.class
+com\yc\login\UploadAutoConfiguration.class
+com\yc\login\bean\LoginProperties.class
+com\yc\login\web\LoginInterceptor.class
+com\yc\login\BizException.class

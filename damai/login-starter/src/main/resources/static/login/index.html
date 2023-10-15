@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录测试页</title>
+    <script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"></script>
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="js/login.js"></script>
+</head>
+<body>
+<div id="app">
+    <div style="background-color: #ddd">
+        <header>
+            <h1>XXX 平台</h1>
+            <login ref="lg"></login>
+        </header>
+        <form action="/login/changePwd">
+            原密码:<input><br>
+            新密码:<input><br>
+            确认密码:<input><br>
+            验证码:<input name="vcode"><br>
+            <button @click.prevent="sendMail">发送验证码</button>
+            <button>修改</button>
+        </form>
+    </div>
+</div>
+<script>
+    var v = new Vue({
+        el : "#app",
+        methods:{
+            sendMail(){
+                axios.get("/vcode/email?toEmail=306529917@qq.com").then(res=>{
+                    alert(res.data.msg);
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>
+
+
+<style>
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 700px;
+        margin: auto;
+        background-color: #ddd;
+    }
+
+
+
+
+
+</style>
