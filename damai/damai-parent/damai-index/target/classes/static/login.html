@@ -162,11 +162,11 @@
 							</tr>
 								<tr>
 									<th>
-										验证码:
+										验证码1111:
 									</th>
 									<td>
 										<span class="fieldSet">
-											<input type="text" id="captcha" name="captcha" class="text captcha" maxlength="4" autocomplete="off"><img id="captchaImage" class="captchaImage" src="images/vcode.jpg" title="点击更换验证码" onclick="checkImg()">
+											<input type="text" id="captcha" v-model="vcode" class="text captcha" maxlength="4" autocomplete="off"><img id="captchaImage" class="captchaImage" src="user/vcode/image" title="点击更换验证码" onclick="checkImg()">
 										</span>
 									</td>
 								</tr>
@@ -266,7 +266,8 @@
 		el : "#app",
 		data : {
 			username: "",
-			password: ""
+			password: "",
+			vcode: ""
 		},
 		created() {},
 		methods : {
@@ -275,6 +276,7 @@
 				var p = new URLSearchParams();
 				p.append("name", this.username);
 				p.append("pwd", this.password);
+				p.append("vcode",this.code);
 				axios.post("user/login/login",p).then(res=>{
 					if(res.data.code){
 						location.href="/";

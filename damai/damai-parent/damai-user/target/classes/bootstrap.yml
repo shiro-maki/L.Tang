@@ -6,3 +6,8 @@ spring:
     config:
       uri: http://127.0.0.1:3344
       label: master
+
+vcode:
+  # 要拦截并且验证资源路径
+  resources:
+    - /login/login

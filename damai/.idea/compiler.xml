@@ -14,6 +14,7 @@
         <module name="login-starter" />
         <module name="vcode-starter" />
         <module name="damai-user" />
+        <module name="springboot-demo1" />
         <module name="cloud-eureka" />
         <module name="damai-index" />
       </profile>
@@ -29,6 +30,7 @@
       <module name="damai-index" options="-parameters" />
       <module name="damai-order" options="-parameters" />
       <module name="damai-user" options="-parameters" />
+      <module name="springboot-demo1" options="-parameters" />
     </option>
   </component>
 </project>
