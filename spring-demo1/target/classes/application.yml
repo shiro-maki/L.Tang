@@ -1,7 +1,7 @@
 demo.name: ycinfo
 #demo.enable: true
 
-server.port: 80
+server.port: 7987
 
 upload:
   enable: true

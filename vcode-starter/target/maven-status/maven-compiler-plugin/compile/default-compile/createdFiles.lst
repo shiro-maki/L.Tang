@@ -1,0 +1,6 @@
+com\yc\vcode\vcodeAutoConfiguration.class
+com\yc\vcode\web\VcodeDo.class
+org\example\Main.class
+com\yc\vcode\util\VerifyCodeUtils.class
+com\yc\vcode\bean\VcodeProperties.class
+com\yc\vcode\bean\Result.class

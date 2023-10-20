@@ -2,12 +2,7 @@ vcode:
   resources:
     - /upload/login
     - /upload/changePwd
-spring:
-  mail:
-    host: smtp.qq.com
-    username: 2056760422@qq.com
-    password: cfjddythazasjjbe
-
+  
 mail:
   fromMail:
     addr: 2056760422@qq.com

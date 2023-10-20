@@ -29,7 +29,7 @@ Vue.component("login",{
 </div>`,
     method:{
         login(){
-            
+
         }
     }
 })

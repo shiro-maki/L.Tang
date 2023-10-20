@@ -33,9 +33,10 @@ public class LoginDo {
     JdbcTemplate jdbcTemplate;
 
     @RequestMapping("login")
-    Result login(String name, String pwd, HttpSession session) throws BizException {
+    Result login(String name, String pwd,String vcode, HttpSession session) throws BizException {
         System.out.println("这是name"+name);
         System.out.println("这是password"+ pwd);
+        System.out.println("这是vcode"+vcode);
         if (name == null || name.trim().isEmpty()) {
             throw new BizException("请填写用户名!");
         }

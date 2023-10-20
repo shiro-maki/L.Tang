@@ -2,6 +2,8 @@ package com.yc.damai.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Data;
+
 import java.io.Serializable;
 //import io.swagger.annotations.ApiModel;
 //import io.swagger.annotations.ApiModelProperty;
@@ -15,6 +17,7 @@ import java.io.Serializable;
  * @since 2023-10-11
  */
 //@ApiModel(value = "Cart对象", description = "")
+    @Data
 public class Cart implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -31,6 +34,7 @@ public class Cart implements Serializable {
 
 //      @ApiModelProperty("商品数量")
       private Integer count;
+      private Product product;
 
     
     public Integer getCiid() {

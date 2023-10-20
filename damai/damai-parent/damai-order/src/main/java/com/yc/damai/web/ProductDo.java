@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
 import com.yc.damai.entity.Product;
 import com.yc.damai.mapper.ProductMapper;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,5 +35,9 @@ public class ProductDo {
         List<Product> news = page.getRecords();
         res.put("news",news);
         return res;
+    }
+    @GetMapping("findById")
+    public Product findByID(int pid){
+        return productMapper.selectById(pid);
     }
 }

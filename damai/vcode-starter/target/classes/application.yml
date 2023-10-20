@@ -1,5 +1,0 @@
-vcode:
-  # 要拦截并且验证资源路径
-  resources:
-    - /upload/login
-    - /upload/changePwd

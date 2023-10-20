@@ -1,4 +1,5 @@
 com\yc\damai\web\remote\OrderDo.class
+com\yc\damai\IndexController.class
 com\yc\damai\web\IndexDo.class
 com\yc\damai\IndexApp.class
 com\yc\damai\web\remote\OrderDoImpl.class

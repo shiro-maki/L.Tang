@@ -9,5 +9,4 @@ spring:
 
 vcode:
   # 要拦截并且验证资源路径
-  resources:
-    - /login/login
+  enable: true
