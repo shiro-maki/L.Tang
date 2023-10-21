@@ -14,7 +14,7 @@ public interface MyOrdersMapper extends OrdersMapper{
     @Results(
             value={
                     @Result(column = "oid",property = "oid",id = true),
-                    @Result(column = "ooid",property = "orderItems",
+                    @Result(column = "oid",property = "orderItems",
                     many=@Many(
                             select="queryByOid",fetchType = FetchType.EAGER
                     )),

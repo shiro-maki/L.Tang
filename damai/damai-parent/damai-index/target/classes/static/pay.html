@@ -119,6 +119,7 @@
 		},
 		created () {
 			axios.get("order/order/findById" + location.search).then(res=>{
+				console.log(res.data);
 				this.order = res.data;
 				// 默认的地址信息
 				this.order.name = this.order.user.name;
