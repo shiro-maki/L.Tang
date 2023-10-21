@@ -171,7 +171,9 @@ Vue.component("damai",{
     `,
     methods:{
         loginChange(user){
+            console.log("=========1==============")
             this.$forceUpdate();
+            this.$emit("login-change",user);
         }
     }
 })

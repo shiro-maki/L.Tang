@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="app">
-	<damai ref="dm" @user-change="loginChangeFn">
+	<damai ref="dm" @login-change="loginChangeFn" >
 		<div class="container cart">
 			<div class="span24">
 
@@ -81,6 +81,47 @@
 		data : {
 			carts : []
 		},
+		// mounted(){
+		//
+		// },
+		methods:{
+			loginChangeFn(user){
+				console.log("======2==========");
+				axios.get("/order/cart/findByUid",{
+							params:{
+								uid: user.uid
+							}
+						}
+				).then(res=>{
+					this.carts=res.data;
+					console.log("这是拿到购物车里"+this.carts)
+				});
+			},
+			addOrder(){
+				//使用JSON对象提交数据
+				var order = {};
+				order.uid=this.$refs.dm.$refs.lg.user.uid;
+				order.orderItems=[];
+				console.log("这是addOrder:",this.carts);
+				this.carts.forEach(cart=>{
+					var orderitem = {
+						pid: cart.pid,
+						count: cart.count,
+						product: {
+							marketPrice: cart.product.marketPrice,
+						}
+					}
+					order.orderItems.push(orderitem);
+					axios.post("order/order/addOrder", order).then(res=>{
+						console.log("饭回来了")
+						if(res.data.code){
+							location.href = "pay.html?oid=" + res.data.data;
+						}
+					})
+				})
+			}
+
+		}
 
 	})
 </script>

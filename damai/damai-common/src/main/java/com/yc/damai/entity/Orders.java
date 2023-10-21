@@ -1,9 +1,14 @@
 package com.yc.damai.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
+import lombok.Data;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 //import io.swagger.annotations.ApiModel;
 
 /**
@@ -15,9 +20,15 @@ import java.time.LocalDateTime;
  * @since 2023-10-11
  */
 //@ApiModel(value = "Orders对象", description = "")
+    @Data
 public class Orders implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @TableField(exist=false)
+    private List<Orderitem> orderItems;
+
+    @TableField(exist=false)
+    private User user;
 
       @TableId(value = "oid", type = IdType.AUTO)
       private Integer oid;

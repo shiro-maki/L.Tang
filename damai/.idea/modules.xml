@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/damai.iml" filepath="$PROJECT_DIR$/damai.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../vcode-starter/vcode-starter.iml" filepath="$PROJECT_DIR$/../vcode-starter/vcode-starter.iml" />
     </modules>
   </component>
 </project>

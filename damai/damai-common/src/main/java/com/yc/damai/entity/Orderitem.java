@@ -1,7 +1,10 @@
 package com.yc.damai.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Data;
+
 import java.io.Serializable;
 //import io.swagger.annotations.ApiModel;
 
@@ -14,9 +17,13 @@ import java.io.Serializable;
  * @since 2023-10-11
  */
 //@ApiModel(value = "Orderitem对象", description = "")
+    @Data
 public class Orderitem implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @TableField(exist = false)
+    private Product product;
 
       @TableId(value = "itemid", type = IdType.AUTO)
       private Integer itemid;

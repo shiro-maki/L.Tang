@@ -17,7 +17,7 @@ public interface MyCartMapper extends CartMapper{
             @Result(column = "ciid",property = "ciid",id = true),
             @Result(column = "pid",property = "pid"),
             @Result(column = "pid",property = "product",
-            one=@One(select = "com.yc.damai.mapper.CartMapper.selectById",fetchType = FetchType.EAGER))
+            one=@One(select = "com.yc.damai.mapper.ProductMapper.selectById",fetchType = FetchType.EAGER))
 
     })
     List<Cart> selectByUid(int uid);

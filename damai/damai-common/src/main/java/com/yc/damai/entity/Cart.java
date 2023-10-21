@@ -1,6 +1,7 @@
 package com.yc.damai.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
@@ -34,6 +35,7 @@ public class Cart implements Serializable {
 
 //      @ApiModelProperty("商品数量")
       private Integer count;
+      @TableField(exist = false)
       private Product product;
 
     
