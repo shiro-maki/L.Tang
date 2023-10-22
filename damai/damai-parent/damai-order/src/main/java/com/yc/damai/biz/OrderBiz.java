@@ -2,6 +2,7 @@ package com.yc.damai.biz;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.yc.damai.entity.Cart;
+import com.yc.damai.entity.Orderitem;
 import com.yc.damai.entity.Orders;
 import com.yc.damai.mapper.CartMapper;
 import com.yc.damai.mapper.OrderitemMapper;
@@ -20,16 +21,23 @@ public class OrderBiz {
     OrderitemMapper orderitemMapper;
     @Resource
     CartMapper cartMapper;
+
     @Transactional
-    public void addOrder(Orders orders){
+    public void addOrder(Orders orders) {
         orders.setTotal(0d);
         orders.setState(1);
         orders.setOrdertime(LocalDateTime.now());
-      orders.getOrderItems().forEach(orderitem -> {
-          orderitem.setSubtotal(orderitem.getCount()*orderitem.getProduct().getMarketPrice());
-          orders.setTotal(orders.getTotal()+orderitem.getSubtotal());
-      });
-      ordersMapper.insert(orders);
+
+        for (int i = 0; i < orders.getOrderItems().size(); i++) {
+             Orderitem orderitem = orders.getOrderItems().get(i);
+            orderitem.setSubtotal(orderitem.getCount() * orderitem.getProduct().getMarketPrice());
+            orders.setTotal(orders.getTotal() + orderitem.getSubtotal());
+        }
+//        orders.getOrderItems().forEach(orderitem -> {
+//            orderitem.setSubtotal(orderitem.getCount() * orderitem.getProduct().getMarketPrice());
+//            orders.setTotal(orders.getTotal() + orderitem.getSubtotal());
+//        });
+        ordersMapper.insert(orders);
         System.out.println("orders.getOid() = " + orders.getOid());
 
         orders.getOrderItems().forEach(orderitem -> {
@@ -37,7 +45,7 @@ public class OrderBiz {
             orderitemMapper.insert(orderitem);
 
             //移除购物商品
-            LambdaQueryWrapper<Cart> lqw=new LambdaQueryWrapper<>();
+            LambdaQueryWrapper<Cart> lqw = new LambdaQueryWrapper<>();
             lqw.eq(Cart::getPid, orderitem.getPid());
             cartMapper.delete(lqw);
         });

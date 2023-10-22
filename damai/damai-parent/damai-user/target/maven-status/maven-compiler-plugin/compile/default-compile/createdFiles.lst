@@ -1,1 +1,5 @@
+com\yc\damai\web\QrcodeDo.class
+com\yc\damai\web\QrcodeDo$CodeState.class
+com\yc\damai\util\QRCodeUtil.class
 com\yc\damai\UserApp.class
+com\yc\damai\web\QrcodeDo$1.class

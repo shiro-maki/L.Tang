@@ -191,6 +191,7 @@
 								</th>
 								<td>
 									<input @click.prevent="login" type="submit" class="submit" value="登 录">
+									<input @click.prevent="showCode" type="submit" class="submit" value="扫码登录">
 								</td>
 							</tr>
 							<tr class="register">
@@ -261,6 +262,18 @@
 			<div class="copyright">Copyright © 2005-2013 Mango商城 版权所有</div>
 		</div>
 	</div>
+	<el-dialog
+			title="扫码登录"
+			:visible.sync="dialogVisible"
+			width="30%"
+			>
+		<el-image src="/user/loginCode"></el-image>
+		<span slot="footer" class="dialog-footer">
+
+    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+
+  </span>
+	</el-dialog>
 </div>
 <script>
 	var v = new Vue({
@@ -268,7 +281,8 @@
 		data : {
 			username: "",
 			password: "",
-			vcode: ""
+			vcode: "",
+			dialogVisible: false,
 		},
 		created() {},
 		methods : {
@@ -285,6 +299,9 @@
 						this.$alert(res.data.msg);
 					}
 				})
+			},
+			showCode(){
+this.dialogVisible=true
 			}
 		}
 	})

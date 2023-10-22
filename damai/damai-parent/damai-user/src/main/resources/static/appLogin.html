@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XXX平台</title>
+    <script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+<div id="app">
+    <header>
+        <div class="c900 flex">
+            <a href=""><h1 style="color: #fdfdfd">XXX平台</h1></a>
+            <span class="flex">
+                <a><el-avatar src="https://img1.baidu.com/it/u=2068393135,2936134418&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></el-avatar></a>
+                <a href="register.html">注册</a>
+                <a href="../../../../../damai-index/src/main/resources/static/login.html">登录</a>
+            </span>
+        </div>
+    </header>
+    <main class="c900">
+        <fieldset>
+            <legend>登录</legend>
+            <form class="grid2" style="width: 300px; margin: auto"
+                  action="/login/login" method="post" enctype="application/x-www-form-urlencoded">
+                <label for="">账号:</label><input type="text" name="username" v-model="user.name">
+                <label for="">密码:</label><input type="password" name="password" v-model="user.pwd">
+                <label for="">验证码:</label><input type="text" name="vcode" v-model="user.vcode">
+                <label for=""></label><img src="vcode/image">
+                <label for=""></label>
+                <div style="text-align: right"><a href="">注册</a>
+                    <button @click.prevent="login">登录</button></div>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>文件上传</legend>
+            <form class="grid2" style="width: 300px; margin: auto"
+                  action="" method="post" enctype="multipart/form-data">
+                <label for="">类型:</label>
+                <select name="type">
+                    <option value="image">图片</option>
+                    <option value="audio">音频</option>
+                    <option value="video">视频</option>
+                    <option value="all">不限</option>
+                </select>
+                <label for="">文件:</label><input type="file" name="file">
+                <label for=""></label>
+                <div style="text-align: right">
+                    <button>上传</button>
+                </div>
+            </form>
+        </fieldset>
+    </main>
+</div>
+<script>
+    var v = new Vue({
+        el : "#app",
+        data : {
+            user:{name:"",pwd:""}
+        },
+        created() {},
+        methods : {
+            login(){
+                var p=new URLSearchParams();
+                p.append("name",this.user.name);
+                p.append("pwd",this.user.pwd);
+                p.append("vcode",this.user.vcode);
+                axios.post("login/login",p).then(
+                    res=>{
+                        if(res.data.code){
+                            // //登陆成功！
+                            // //发送请求通知服务器 TODO
+                            // let namePwd="&name="+res.data.data.username+
+                            //     "&pwd="+res.data.data.password
+                            axios.post("modifyCodeState"+location.search,res.data.data).then(
+                                res=>{
+                                    alert(res.data);
+                                }
+                            )
+                        }
+                    }
+                );
+            }
+        }
+    })
+</script>
+</body>
+</html>
+
+<style>
+    html,body,#app{
+        height: 100%;
+    }
+    body{
+        margin: 0px;
+        padding: 0px;
+        background-size: cover;
+    }
+    a{
+        text-decoration: none;
+        color: #666
+    }
+    img{
+        width: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    .c900{
+        width: 400px;
+        margin-inline: auto;
+    }
+    .flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .grid2{
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: auto auto;
+    }
+    .grid3{
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+    .grid4{
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+    header{
+        background-color: #0f9ae0;
+        background-size: cover;
+        position: sticky;
+        top: 0px;
+        z-index: 1;
+        height: 60px;
+    }
+    header h1{
+        margin: 10px;
+    }
+    header span>a{
+        margin-left: 20px;
+        color: #fff;
+    }
+    main{
+        background-color: #eee;
+        min-height: calc(100% - 100px);
+        padding: 20px;
+    }
+</style>

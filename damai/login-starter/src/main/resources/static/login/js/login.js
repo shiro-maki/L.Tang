@@ -51,10 +51,13 @@ Vue.component("login",{
             this.props = res.data;
             axios.get(this.prefix + "/login/myinfo").then(res=>{
                 if(res.data.code){
+
                     this.user = res.data.data;
+                    console.log(this.user);
                 } else {
                     this.user = null;
                 }
+                console.log(res.data.data);
                 this.$emit("change", this.user);
             });
         });

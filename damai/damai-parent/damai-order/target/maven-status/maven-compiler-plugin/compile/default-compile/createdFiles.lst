@@ -1,2 +1,8 @@
+com\yc\damai\biz\OrderBiz.class
+com\yc\damai\mapper\MyCartMapper.class
+com\yc\damai\web\OrderDo.class
+com\yc\damai\mapper\MyOrdersMapper.class
+com\yc\damai\web\CartDo.class
+com\yc\damai\biz\CartBiz.class
 com\yc\damai\OrderApp.class
 com\yc\damai\web\ProductDo.class
