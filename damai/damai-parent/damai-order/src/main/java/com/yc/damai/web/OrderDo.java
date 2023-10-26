@@ -13,6 +13,8 @@ import com.yc.damai.vo.Result;
 import io.micrometer.core.instrument.util.AbstractPartition;
 import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.data.redis.core.HashOperations;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,12 +39,16 @@ public class OrderDo {
     @Resource
     UserMapper userMapper;
     @Resource
+    RedisTemplate redisTemplate;
+    @Resource
     ProductMapper productMapper;
     //处理大促订单
     @RabbitListener(queuesToDeclare =@Queue(value = "damaiDacu"))
     public void addDacuOrder(DacuOrder dacuOrder){
         Orders orders=new Orders();
         final User user = userMapper.selectById(dacuOrder.getUid());
+        final HashOperations opsForHash = redisTemplate.opsForHash();
+        Product products = (Product) opsForHash.get("dacuProducts", dacuOrder.getPid());
         final Product product = productMapper.selectById(dacuOrder.getPid());
         orders.setUid(dacuOrder.getUid());
         orders.setAddr(user.getAddr());

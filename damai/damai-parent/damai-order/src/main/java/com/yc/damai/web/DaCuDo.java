@@ -11,6 +11,7 @@ import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.SetOperations;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -21,6 +22,7 @@ import java.util.*;
 public class DaCuDo {
     private long beginTime;
     private long length;
+    private Timer timer=new Timer();
 
     @Resource
     ProductMapper productMapper;
@@ -32,12 +34,19 @@ public class DaCuDo {
     RabbitTemplate rabbitTemplate;
     @RequestMapping("begin")
 
-    public String begin(){
+    public synchronized String begin(@RequestParam(defaultValue = "60") int minute){
         if(beginTime>0){
             return "活动已经开始";
         }
         beginTime=System.currentTimeMillis();
-        length=60*60*1000;
+        this.length=minute*60*1000;
+        //定时停止大促活动
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                DaCuDo.this.stop();
+            }
+        }, this.length);
 
         final Date date = new Date(beginTime + length);
         LambdaQueryWrapper<Product> lqw=new LambdaQueryWrapper<>();
@@ -54,7 +63,12 @@ public class DaCuDo {
     }
 
     @RequestMapping("stop")
-    public String stop(){
+    public synchronized String stop(){
+        if(beginTime==0){
+            return "活动已经停止";
+        }
+        //取消定时自动停止任务
+        timer.cancel();
         beginTime=0;
         length=0;
         clean();

@@ -21,12 +21,19 @@
 <div id="app">
 	<damai ref="dm">
 		<div class="container index">
+			<div v-if="dacuTime.beginTime" class="title">
+				<h1>限时秒杀<span >{{dacuStopTime.toISOString().replace(/.+(\d{2}:\d{2}:\d{2}).+/,"$1")}}</span></h1>
+
+				<div>
+					<img v-for="p in dacuProducts" :src="p.image" alt=""
+						 style="width: 90px;height: 100px" @click="seckill(p.pid)">
+
+				</div>
+				<!-- <a  target="_blank"></a> -->
+			</div>
 			<div class="span24">
 				<div id="hotProduct" class="hotProduct clearfix">
-					<div class="title">
-						<strong>热门商品</strong>
-						<!-- <a  target="_blank"></a> -->
-					</div>
+
 					<ul class="tab">
 						<li class="current">
 							<a href="./蔬菜分类.htm?tagIds=1" target="_blank"></a>
@@ -124,15 +131,55 @@
 		el : "#app",
 		data : {
 			hots:[],
-			news:[]
+			news:[],
+			dacuTime:{},
+			dacuProducts: [],
+			dacuStopTime: null,
 		},
 		created() {
 			axios.get("/indexProduct").then(res=>{
 				this.hots=res.data.hots;
 				this.news=res.data.news;
+			});
+			axios.get("order/dacu/" +
+					"getTime").then(res=>{
+				this.dacuTime=res.data;
+				if(this.dacuTime.beginTime>0){
+					axios.get("order/dacu/getDacuProducts").then(res=> {
+						this.dacuProducts = res.data;
+					});
+					var endTime = res.data.beginTime + res.data.length;
+					setInterval(()=>{
+						let time = endTime - new Date().getTime();
+						this.dacuStopTime = new Date(time);
+					},1000);
+				}
 			})
 		},
-		methods : {}
+		methods : {
+			seckill(pid){
+				if(this.$refs.dm.$refs.lg.user == null){
+					this.$alert("请先登录系统!").then(()=>{
+						location.href = "/login.html";
+					})
+				}
+				let uid = this.$refs.dm.$refs.lg.user.uid;
+				let num = 1;
+				axios.get("order/dacu/seckill",{
+					params : {
+						pid : pid,
+						uid : uid,
+						num : num
+					}
+				}).then(res=>{
+					if(res.data.code == 1){
+						this.$message("秒杀成功!");
+					} else {
+						this.$alert(res.data.msg);
+					}
+				})
+			}
+		}
 	})
 </script>
 </body></html>
