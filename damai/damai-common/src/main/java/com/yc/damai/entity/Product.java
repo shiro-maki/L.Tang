@@ -2,6 +2,8 @@ package com.yc.damai.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Data;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 //import io.swagger.annotations.ApiModel;
@@ -13,7 +15,7 @@ import java.time.LocalDateTime;
  *
  * @author tl
  * @since 2023-10-11
- */
+ */@Data
 //@ApiModel(value = "Product对象", description = "")
 public class Product implements Serializable {
 
@@ -37,6 +39,7 @@ public class Product implements Serializable {
     private LocalDateTime pdate;
 
     private Integer csid;
+    private Integer cnt;
 
     
     public Integer getPid() {

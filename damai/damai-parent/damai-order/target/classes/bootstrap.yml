@@ -7,6 +7,13 @@ spring:
       uri: http://127.0.0.1:3344
       label: master
 
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
 vcode:
   resources:
     - /login/login

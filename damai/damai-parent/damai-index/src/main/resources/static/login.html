@@ -283,9 +283,23 @@
 			password: "",
 			vcode: "",
 			dialogVisible: false,
+			websocket:"",
 		},
-		created() {},
+		created() {
+			//zuul网关不支持websocket,绕开zuul直接访问user应用
+			this.websocket=new WebSocket("ws://127.0.0.1:8001/qc/"+new Date().getTime());
+			this.websocket.onmessage=(e)=>{
+				console.info(e);
+				if(e.data=='login success'){
+					location.href="/";
+
+				}
+			}
+		},
 		methods : {
+			creatWS(){
+
+			},
 			login(){
 				var p = new URLSearchParams();
 				p.append("name", this.username);

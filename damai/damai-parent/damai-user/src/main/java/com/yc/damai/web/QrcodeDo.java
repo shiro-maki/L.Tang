@@ -7,14 +7,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.sockjs.transport.session.WebSocketServerSockJsSession;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.awt.*;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +39,7 @@ public class QrcodeDo {
     }
 
     @RequestMapping(value = "loginCode",produces = MediaType.IMAGE_JPEG_VALUE)
-    public void qrcodeForLogin(HttpSession session, OutputStream out) throws Exception {
+    public void qrcodeForLogin(HttpSession session, HttpServletResponse response, OutputStream out) throws Exception {
         String uuid= UUID.randomUUID().toString();
       String url="http://10.205.43.20//user/scanCode?qrcode="+uuid;
         System.out.println("url="+url);
@@ -42,6 +47,14 @@ public class QrcodeDo {
         qrcodeMap.put(uuid, new CodeState());
         //将会话保存到会话容器
         sessionMap.put(uuid,session);
+        //创建cookie
+        Cookie cookie=new Cookie("uuid",uuid);
+        //有效期1分钟
+        cookie.setMaxAge(60);
+        //设置路径 为根目录
+        cookie.setPath("/");
+        response.addCookie(cookie);
+
       qrcode(url, out);
     }
     @RequestMapping("scanCode")
@@ -51,7 +64,7 @@ public class QrcodeDo {
     }
     //修改扫码状态
     @RequestMapping("modifyCodeState")
-    public String modifyCodeState(String qrcode, @RequestBody User user){
+    public String modifyCodeState(String qrcode, @RequestBody User user) throws IOException {
         final CodeState codeState = qrcodeMap.get(qrcode);
         codeState.status=1;
         //手机端浏览器向服务器发送用户信息
@@ -59,6 +72,7 @@ public class QrcodeDo {
         final HttpSession session = sessionMap.get(qrcode);
         //将用户对象存入到PC端的会话中
         session.setAttribute("loginedUser", user);
+        WebSocketSession.getBasicRemote().sendText("login success!");
         System.out.println(session.getId());
         return "OK";
     }
@@ -67,10 +81,10 @@ public class QrcodeDo {
         int status;
     }
 
-//    Session session;
-//
-//    @OnOpen
-//    public void onOpen(@PathParam("id") String id, Session session){
-//        this.session=session;
-//    }
+    Session WebSocketSession;
+
+    @OnOpen
+    public void onOpen(@PathParam("id") String id, Session session){
+        this.WebSocketSession=session;
+    }
 }

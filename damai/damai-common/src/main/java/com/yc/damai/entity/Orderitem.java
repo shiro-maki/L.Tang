@@ -28,6 +28,8 @@ public class Orderitem implements Serializable {
       @TableId(value = "itemid", type = IdType.AUTO)
       private Integer itemid;
 
+
+
     private Integer count;
 
     private Double subtotal;
